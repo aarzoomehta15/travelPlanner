@@ -40,7 +40,7 @@ const MyTrips = () => {
             return
         }    
         try{
-            const response = await axios.get(`http://localhost:5000/api/trips/user/${user.email}`)
+            const response = await axios.get(`https://triplanr.onrender.com/api/trips/user/${user.email}`)
             setUserTrips([])
 
             const trips = response.data.map(trip => {

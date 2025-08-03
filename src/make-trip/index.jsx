@@ -88,7 +88,7 @@ const CreateTrip = () => {
     }
 
     try{
-      const response = await axios.post('http://localhost:5000/api/trips', {
+      const response = await axios.post('https://triplanr.onrender.com/api/trips', {
         userSelection: formData,
         tripData: tripData,
         userEmail : user.email,
