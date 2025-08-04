@@ -22,7 +22,7 @@ const ViewTrip = () => {
 
     const getTripData = async() => {
         try{
-            const response = await axios.get(`https://triplanr.onrender.com/api/trips/${tripId}`)
+            const response = await axios.get(`http://localhost:5000/api/trips/${tripId}`)
             //api call
 
             if(response.data){
