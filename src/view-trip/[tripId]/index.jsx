@@ -8,6 +8,7 @@ import Hotels from '../components/hotels'
 import PlacesToVisit from '../components/placesToVisit'
 import Footer from '../components/Footer'
 import Additional from '../components/Additional'
+import Header from '@/components/custom/Header'
 
 const ViewTrip = () => {
     //to read dynamic parts of the url useparams is used
@@ -43,6 +44,8 @@ const ViewTrip = () => {
   }
 
   return (
+    <>
+    <Header></Header>
     <div className = 'p-10 md:px-20 lg:px-44 xl:px-56'>
       {/* Information Section */}
       <InfoSection trip = {trip}></InfoSection>
@@ -54,6 +57,7 @@ const ViewTrip = () => {
       {/* footer */}
       <Footer trip = {trip}></Footer>
     </div>
+    </>
   )
 }
 

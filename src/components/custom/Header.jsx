@@ -37,7 +37,7 @@ const Header = () => {
           Accept: 'Application/json'
         }
       }).then((resp)=>{
-        console.log(resp);
+        console.log(resp.data);
         localStorage.setItem('user',JSON.stringify(resp.data))
         //stores users profile even after page is reloaded 
         setOpenDialog(false)
@@ -65,7 +65,13 @@ const Header = () => {
             </a>
 
             <Popover>
-              <PopoverTrigger><img src = {user?.picture} className='h-[35px] w-[35px] rounded-full'></img></PopoverTrigger>
+              <PopoverTrigger>
+                <img
+                  src={user?.picture}
+                  onError={e => { e.target.onerror = null; e.target.src = '/user.png'; }}
+                  className='h-[35px] w-[35px] rounded-full'
+                />
+              </PopoverTrigger>
                 <PopoverContent>
                   <h2 onClick={() => {
                     googleLogout()
@@ -85,7 +91,7 @@ const Header = () => {
           <DialogTitle>Sign in required</DialogTitle>
           <DialogHeader>
             <DialogDescription>
-              <img src='/logo.svg'></img>
+              <img src='/logo.png' className='h-10'></img>
               <h2 className='font-bold text-lg mt-7'>Sign In with Google</h2>
               <p>Sign in to the app with Google Authentication securely</p>
 

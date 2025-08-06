@@ -12,6 +12,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from 'react-router';
+import Header from '@/components/custom/Header';
 
 
 const CreateTrip = () => {
@@ -118,8 +119,6 @@ const CreateTrip = () => {
   })
 
   const getUserProfile=(tokenInfo)=>{
-    console.log("token info", tokenInfo)
-    console.log("Access token: ",tokenInfo?.access_token)
     if(!tokenInfo?.access_token){
       console.error("Access token is missing");
       return;
@@ -144,6 +143,8 @@ const CreateTrip = () => {
   }
 
   return ( 
+    <>
+    <Header></Header>
     <div className="sm:px-10 md:px-28 lg:px-56 xl:px-10 px-5">
       <h2 className="font-extrabold text-3xl text-[#718355]">
         Tell us about your travel preferences 🌍🌴
@@ -222,7 +223,7 @@ const CreateTrip = () => {
           <DialogTitle>Sign in required</DialogTitle>
           <DialogHeader>
             <DialogDescription>
-              <img src='/logo.svg'></img>
+              <img src='/logo.png' className='h-10 '></img>
               <h2 className='font-bold text-lg mt-7'>Sign In with Google</h2>
               <p>Sign in to the app with Google Authentication securely</p>
 
@@ -239,6 +240,7 @@ const CreateTrip = () => {
 
       </div>
     </div>
+    </>
   );
 };
 
