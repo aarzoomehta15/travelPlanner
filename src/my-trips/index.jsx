@@ -3,6 +3,7 @@ import {useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import UserTripCard from './components/UserTripCard'
 import { getPlaceDetails, PHOTO_REF_URL } from '@/service/GlobalApi'
+import Header from '@/components/custom/Header'
 
 const MyTrips = () => {
     const [loading, setLoading] = useState(true)
@@ -68,6 +69,8 @@ const MyTrips = () => {
     }, [navigate])
 
   return (
+    <>
+    <Header></Header>
     <div className='sm:px-10 md:px-28 lg:px-56 xl:px-10 px-5'>
       <h2 className='font-bold text-3xl'>My Trips</h2>
 
@@ -87,6 +90,7 @@ const MyTrips = () => {
         }
       </div>
     </div>
+    </>
   )
 }
 
